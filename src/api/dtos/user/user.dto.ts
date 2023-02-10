@@ -4,4 +4,5 @@ export default interface UserDto {
     name: string
     email: string
     createdAt: Date
+    updatedAt: Date
 }

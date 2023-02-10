@@ -1,7 +1,7 @@
 import {Model, DataTypes, Sequelize, Optional} from "sequelize"
 import {User} from "../interfaces"
 
-export type UserCreationAttributes = Optional<User, "id" | "identifier" | "createdAt">
+export type UserCreationAttributes = Optional<User, "id" | "identifier" | "createdAt" | "updatedAt">
 
 export default class UserModel extends Model<User, UserCreationAttributes> implements User {
     public id: number
@@ -9,6 +9,7 @@ export default class UserModel extends Model<User, UserCreationAttributes> imple
     public name: string
     public email: string
     public createdAt: Date
+    public updatedAt: Date
 }
 
 export const init = (sequelize: Sequelize): typeof UserModel => {
@@ -37,8 +38,11 @@ export const init = (sequelize: Sequelize): typeof UserModel => {
             },
             createdAt: {
                 allowNull: false,
-                type: DataTypes.DATE,
-                field: "created_at"
+                type: DataTypes.DATE
+            },
+            updatedAt: {
+                allowNull: false,
+                type: DataTypes.DATE
             }
         },
         {

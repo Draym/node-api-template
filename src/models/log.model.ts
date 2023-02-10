@@ -42,12 +42,10 @@ export const init = (sequelize: Sequelize): typeof LogModel => {
             createdBy: {
                 allowNull: false,
                 type: DataTypes.STRING,
-                field: "created_by"
             },
             createdAt: {
                 allowNull: false,
                 type: DataTypes.DATE,
-                field: "created_at"
             }
         },
         {

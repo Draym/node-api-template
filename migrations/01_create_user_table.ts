@@ -25,6 +25,10 @@ export const up: Migration = async ({context: queryInterface}: { context: QueryI
         created_at: {
             allowNull: false,
             type: DataTypes.DATE
+        },
+        updated_at: {
+            allowNull: false,
+            type: DataTypes.DATE
         }
     })
 }

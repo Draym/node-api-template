@@ -9,8 +9,7 @@ class UserService {
     async create(name: string, email: string): Promise<UserModel> {
         return await db.Users.create({
             name: name,
-            email: email,
-            createdAt: nowUTC()
+            email: email
         })
     }
     async findAll(filter: Filter, page: Page): Promise<User[]> {
