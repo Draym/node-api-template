@@ -2,7 +2,6 @@ import {Dialect, Sequelize} from "sequelize"
 import config from "../config/db.config"
 
 import {init as initLogModel} from "../models/log.model"
-import {init as initUserModel} from "../models/user.model"
 
 export const connectionParams = {
     username: config.username,
@@ -31,8 +30,7 @@ const sequelize = new Sequelize(connectionParams)
 export {sequelize}
 
 const db = {
-    Logs: initLogModel(sequelize),
-    Users: initUserModel(sequelize),
+    Logs: initLogModel(sequelize)
 }
 
 export default db

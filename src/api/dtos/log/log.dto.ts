@@ -1,7 +1,9 @@
+import {LogEvent, LogScope} from "../../../enums"
+
 export default interface LogDto {
     id: number
-    scope: string
-    event: string
+    scope: LogScope
+    event: LogEvent
     message: string | null
     code: string | null
     createdBy: string
