@@ -1,6 +1,6 @@
 import {AuthPathRequest, AuthQueryRequest, Filter, Page, toOptDate} from "@d-lab/api-kit"
 import {GetRequest, ListRequest, LogResponse, LogsResponse} from "../api/dtos/log"
-import logService from "../services/log.service"
+import {logService} from "../services"
 import LogApi from "../api/log.api"
 
 export default class LogController implements LogApi {

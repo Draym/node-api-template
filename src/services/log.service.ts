@@ -5,7 +5,7 @@ import {Log} from "../interfaces"
 import Errors from "../utils/errors/Errors"
 import {LogModel} from "../models"
 
-class LogService {
+export default class LogService {
     async create(scope: LogScope, event: LogEvent, by: string, message: string | null = null, code: string | null = null): Promise<LogModel> {
        return await db.Logs.create({
             scope: scope,
@@ -28,5 +28,3 @@ class LogService {
         return log!
     }
 }
-
-export default new LogService()
