@@ -1,7 +1,9 @@
 import {NextFunction, Request, RequestHandler, Response} from "express"
 import sso from "../clients/sso.client"
-import {AuthRawData, isNotNull, logger, throwIfNull} from "@d-lab/api-kit"
-import {AuthMeResponse, Errors} from "@d-lab/sso"
+import {AuthRawData, logger} from "@d-lab/api-kit"
+import {AuthMeResponse} from "@d-lab/sso"
+import {isNotNull, throwIfNull} from "@d-lab/common-kit"
+import Errors from "../utils/errors/Errors"
 
 declare global {
     namespace Express {
@@ -15,7 +17,7 @@ declare global {
 export const authMiddleware = (): RequestHandler => {
 
     async function verifyJWT(Authorization: string): Promise<AuthMeResponse> {
-       return await sso.auth.me(Authorization)
+        return await sso.auth.me(Authorization)
     }
 
     return async <R extends Request>(req: R, res: Response, next: NextFunction) => {
